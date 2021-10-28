@@ -1,5 +1,5 @@
 # Assignment 2: Text Analysis and Text Mining
- 
+
 ## Introduction
 
 In this project you will learn how to use computational techniques to analyze text. Specifically, you will access text from the web and social media (such as Twitter), run some sort of computational analysis on it, and create some sort of deliverable (either some interesting results from a text analysis, a visualization of some kind, or perhaps a computer program that manipulates language in some interesting way). ~~You will be working with a partner on this assignment.~~ This assignment is an **individual** project.
@@ -28,14 +28,8 @@ You should read this document in a somewhat non-linear/spiral fashion:
    ```
    In other words, I will only run the entry Python file to test your code. 
 5. Write a brief document about what you did (Part 3)
-6. **NOTICE:** If you use any code that is not written by you (or that you learn from other places such as StackOverFlow/GitHub), please add Python comments (before the block of code) describing where you get/learn it . 
+6. **NOTICE:** If you use any code that is not written by you (or that you learn from other places such as StackOverFlow/GitHub), please add Python comments (before the block of code) describing where you get/learn it. 
 
-### ~~Teaming Logistics:~~
-
-- ~~You can work in a team of **exactly two students** or work **individually**.~~
-- ~~Your partner cannot be in the same term-project team with you.~~
-- ~~If your team has more than 3 members, please divide your team to two groups.~~  
-- ~~**Only one** of you should fork the base repo for this assignment. The one that forks the repo should then **invite** the other team member to the repository.~~
 
 ---
 ## Part 1: Harvesting text from the Internet
