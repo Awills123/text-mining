@@ -73,7 +73,6 @@ def most_common(cleaned_data,stopwords=True):
     """
     t = []
     stopwords = set(open('stopwords.txt').read().split())
-    print(stopwords)
     if stopwords:
         '''excludes the stopwords here'''
         cleaned_data = {w:freq for w, freq in cleaned_data.items() if w not in stopwords}
@@ -90,6 +89,7 @@ def random_word(new_dict):
     """
     l = [] 
     for word, freq in new_dict.items():
+        '''proportional to its frequency'''
         l.extend([word]*freq)
     return random.choice(l)
         
