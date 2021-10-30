@@ -3,6 +3,7 @@ import urllib.request
 import string
 import sys 
 from unicodedata import category 
+import collections
 
 def make_request(url):
     ''' Generic function that makes a request to the given url and returns the response '''
@@ -46,6 +47,7 @@ def clean_data(text):
 
 
 
+
 def word_frequency(string_list):
     d = dict()
     for line in string_list: 
@@ -59,17 +61,21 @@ def word_frequency(string_list):
         print(key, ":", d[key])
     return d
 
+    
 
-
-def most_common(cleaned_data):
+def most_common(cleaned_data,stopwords=True):
     """Makes a list of word-freq pairs(tuples) in descending order of frequency.
     hist: map from word to frequency
     excluding_stopwords: a boolean value. If it is True, do not include any stopwords in the list.
     returns: list of (frequency, word) pairs
     """
     t = []
-    for word, freq in cleaned_data.items():
-        t.append((freq,word))
+    stopwords = set(open('stopwords.txt').read().split())
+    print(stopwords)
+    if stopwords == True:
+        cleaned_data = [w for w in cleaned_data if w not in stopwords]
+    for w, freq in cleaned_data.items():
+        t.append((freq,w))
     t.sort()
     t.reverse()
     return t
@@ -82,7 +88,7 @@ def main():
     removed_header_footer = remove_header(text)
     cleaned_data = clean_data(removed_header_footer)
     new_dict = word_frequency(cleaned_data)
-    t = most_common(new_dict)
+    t = most_common(new_dict,stopwords=True)
     print('The most common words are:')
     for freq, word in t[0:20]:
         print(word, '\t', freq)
