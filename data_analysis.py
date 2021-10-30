@@ -3,7 +3,7 @@ import urllib.request
 import string
 import sys 
 from unicodedata import category 
-import collections
+import random 
 
 def make_request(url):
     ''' Generic function that makes a request to the given url and returns the response '''
@@ -72,14 +72,22 @@ def most_common(cleaned_data,stopwords=True):
     t = []
     stopwords = set(open('stopwords.txt').read().split())
     print(stopwords)
-    if stopwords == True:
-        cleaned_data = [w for w in cleaned_data if w not in stopwords]
+    if stopwords:
+        cleaned_data = {w:freq for w, freq in cleaned_data.items() if w not in stopwords}
     for w, freq in cleaned_data.items():
         t.append((freq,w))
     t.sort()
     t.reverse()
     return t
 
+def random_word(new_dict):
+    """Chooses a random word from a histogram.
+    The probability of each word is proportional to its frequency.
+    """
+    l = [] 
+    for word, freq in new_dict.items():
+        l.extend([word]*freq)
+    return random.choice(l)
         
 
 
@@ -92,6 +100,9 @@ def main():
     print('The most common words are:')
     for freq, word in t[0:20]:
         print(word, '\t', freq)
+    print("\n\nHere are some random words from the book:")
+    for i in range(100):
+        print(random_word(new_dict), end=' ')
    
 
 if __name__ == '__main__':
