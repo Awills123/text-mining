@@ -14,16 +14,18 @@ With this cleaned data, I could now begin to conduct some analysis on the speech
 ## Results
 
 My results for this assignment were exactly what I wanted them to be. I wanted the top 20 words that were found throughout his speeches to learn the diction that was used back then. The word_frequency function gave an output that was too large to really understand so thats why I wanted to narrow it down to only 20 words. The result from the common_words function gave me the result I was looking for and some of the top words were: 
-    - one      381
-    - mr       362
-    - said     296
-    - now      270
-    - will     264
-    - years    238
-    - man      232
-    - know     229
-    - can      218
-    - time     199
+    
+    1. one      381
+    2. mr       362
+    3. said     296
+    4. now      270
+    5. will     264
+    6. years    238
+    7. man      232
+    8. know     229
+    9. can      218
+    10. time     199
+    
 After looking at these words, I did not really see a difference in diction back then but I was able to get a gist of what his speeches entailed. The fact that now and years were some of the top words gives me the idea that he was very invested into what happened in the future. He wanted a say in what happened in the coming years and wanted to make action in their present time. Other words that stood out to me were 'mr' and 'man' becuase it looks as though he only spoke to a male dominated community. This shows the type of era that he was in and the male dominance that was in place for society. This mix of words gives me a sense of firmness and confidence in his speeches with words like 'will' and 'know' being shown frequently. 
 
 Still, this list of words did not really show me the true diction that was used back then so I decided to print a list of random words proportional to their frequency. Some words that were outputted were 'phraseology', 'prayer' and 'mere' which truly s
