@@ -16,13 +16,13 @@ def remove_header(text):
     ''' Finds indexes of starting and ending strings and returns a sliced text removing the indexes found'''
     start_indicator = "*** START OF THIS PROJECT GUTENBERG EBOOK MARK TWAIN'S SPEECHES ***"
     end_indicator = "End of the Project Gutenberg EBook of Mark Twain's Speeches by Mark"
-    # find the position of the starting string
+    '''find the position of the starting string'''
     start_index = text.find(start_indicator)
-    # find the postiion of the ending string
+    '''find the postiion of the ending string'''
     end_index = text.find(end_indicator)
-    # add on the length of the string to starting index so it chops the whole string rather than just the first character
+    """add on the length of the string to starting index so it chops the whole string rather than just the first character"""
     slice_start_index = start_index + len(start_indicator)
-    # return sliced string
+    '''return sliced string'''
     return text[slice_start_index:end_index]
 
 
@@ -30,19 +30,21 @@ def clean_data(text):
     ''' removes all puncuation from strings and returns a new list of cleaned strings'''
     words_in_speech = list(text.split())
     string_list = []
-    # borrowed from professor's code
+    '''borrowed from professor's code'''
     strippables = ''.join([chr(i) for i in range(sys.maxunicode) if category(chr(i)).startswith("P")])
     for word in words_in_speech:
-        # make all words lowercase
+        '''make all words lowercase'''
         word = word.lower()
-        # remove strippable characters from the end and beginning of the string
+        '''remove strippable characters from the end and beginning of the string'''
         word = word.strip(strippables)
-        # remove strippable characters from the middle of the string
+        '''remove strippable characters from the middle of the string'''
         word = word.replace(strippables, '')
+        '''creates a table that shows the replacable characters'''
         table = str.maketrans(dict.fromkeys(string.punctuation))
-        new_s = word.translate(table)       
+        '''replaces the unneccesarry characters'''
+        new_s = word.translate(table)
+        '''includes it into the stringlist'''       
         string_list.append(new_s)
-    # print(string_list)
     return string_list
 
 
@@ -73,7 +75,9 @@ def most_common(cleaned_data,stopwords=True):
     stopwords = set(open('stopwords.txt').read().split())
     print(stopwords)
     if stopwords:
+        '''excludes the stopwords here'''
         cleaned_data = {w:freq for w, freq in cleaned_data.items() if w not in stopwords}
+    '''appends the most common non-stopwords to the list'''
     for w, freq in cleaned_data.items():
         t.append((freq,w))
     t.sort()
@@ -110,18 +114,6 @@ if __name__ == '__main__':
         
 
 
-
-import pickle
-
-# Save data to a file (will be part of your data fetching script)
-
-# with open('speeches.pickle','w') as f:
-#     pickle.dump(string_list,f)
-
-
-# # Load data from a file (will be part of your data processing script)
-# with open('speeches.pickle','r') as input_file:
-#     reloaded_copy_of_texts = pickle.load(input_file)
 
 
 

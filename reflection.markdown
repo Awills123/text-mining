@@ -7,13 +7,24 @@ For my project I decided to use Project Gutenburg and analyze a set of speeched 
 ## Implementation
  <!-- [~2-3 paragraphs] Describe your implementation at a system architecture level. You should NOT walk through your code line by line, or explain every function (we can get that from your docstrings). Instead, talk about the major components, algorithms, data structures and how they fit together. You should also discuss at least one design decision where you had to choose between multiple alternatives, and explain why you made the choice you did. -->
 
-The hardest part was to start my process of analysis to be completely honest. When I thought about it logically, I knew I had to strip the data and make a new list of only the words while excluding punctuation marks and other characters. I began by creating a function that loads in the text and with this I could begin to clean my data. This set of data included a variety of speeches from Mark Twain so I wanted to only keep his wirting without the introduction and headers. To do this i created another function that removed the header and footer from the file and only left the text as is without any other unneccesary writing. After I created this function which basically 
+The hardest part of this assignment was to start my process of analysis to be completely honest. When I thought about it logically, I knew I had to strip the data and make a new list of only the words while excluding punctuation marks and other characters. I began by creating a function that loads in the text and with this I could begin to clean my data. This set of data included a variety of speeches from Mark Twain so I wanted to only keep his wirting without the introduction and headers. To do this i created another function that removed the header and footer from the file and only left the text as is without any other unneccesary writing. This function contained the .find function and spliced the data atcertain points wwhich I defined in the function. After I created this function which basically gave me the raw text, I needed to use this output to continue to clean my data and get rid of punctuation and create a list of only the words. I struggled with this part and had to choose between various different ways to clean my data. At first I was trying to go manually and use .replace to replace each unneccessary character with a " " but this did not work well. To finally get this to work I used code from the professor and used the strippables definition we had conducted a few classes before. After I defined my strippables I still was getting a weird output so I reached out for help and did some research and learned about the .maketrans function which created a table of the replacable characters. I used this function to get replace those characters and then create a new string list that appended the cleaned words. 
 
+With this cleaned data, I could now begin to conduct some analysis on the speeches and get creative with it. I wanted to orginally look at each speech individually but there are too many to be able to splice each one. With this in mind I pivoted my goal of the project and decided to use word frequency to analyze his most used words in all of his speeches. I created a function called word_frequency and created a dictionary of each word and how many times they appear in the text. I applied this function to the cleaned data I had previously which gave me a new dictionary that I could apply to my next functions. After I had this function done, it was much easier to continue with the analysis by using the output this function gave me. I continued by creating another function which would output the 20 most common words while excluding stopwords like "a, the, I, they, etc". I loaded the stopwords into a txt file and then created a new dictionary with the words in the text that were not stopwords. With this dictionary I could load it only the relevant words and their frequency. To print everything, at the main function at the bottom of my code I defined a new variable that used most_common function to analyze the dictionary I had created with the word_frequency function. I then told the code to print only 20 of the most common words along with their frequency. The last part of my implementation was creating a function called random_words that output a set of random words according to their frequency. To print this I used the random_word function and told it to analyze  the dictionary I had created previously that included the word_frequency function. 
 
-3. Results [~2-3 paragraphs + figures/examples] Present what you accomplished:
+## Results
 
-If you did some text analysis, what interesting things did you find? Graphs or other visualizations may be very useful here for showing your results.
-If you created a program that does something interesting (e.g. a Markov text synthesizer), be sure to provide a few interesting examples of the program's output.
+My results for this assignment were exactly what I wanted them to be. I wanted the top 20 words that were found throughout his speeches to learn the diction that was used back then. The word_frequency function gave an output that was too large to really understand so thats why I wanted to narrow it down to only 20 words. The result from the common_words function gave me the result I was looking for and displayed that the top ten words were : 
+    one      381
+    mr       362
+    said     296
+    now      270
+    will     264
+    years    238
+    man      232
+    know     229
+    can      218
+    time     199
+
 
 
 
